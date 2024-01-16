@@ -21,7 +21,11 @@ const Blog = () => {
           Open Modal
         </Button>
         <Modal isOpen={modal} onClose={handleModalClose}>
-          <Modal.CloseButton></Modal.CloseButton>
+          {/* <Modal.CloseButton onClose={handleModalClose}></Modal.CloseButton> */}
+          <Modal.Header>
+            <h3>This is modal header</h3>
+            <Modal.CloseButton></Modal.CloseButton>
+          </Modal.Header>
           <h1>This is Modal</h1>
         </Modal>
       </div>
