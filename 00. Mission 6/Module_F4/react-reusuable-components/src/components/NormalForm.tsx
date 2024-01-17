@@ -26,12 +26,7 @@ const NormalForm = () => {
       >
         <div className="w-full max-w-md">
           <label htmlFor="name">Name</label>
-          <input
-            className="block w-full border border-gray-300 rounded-md focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
-            type="text"
-            id="name"
-            {...register("name")}
-          />
+          <input type="text" id="name" {...register("name")} />
         </div>
         <div className="w-full max-w-md">
           <label htmlFor="name">Email</label>
@@ -41,8 +36,33 @@ const NormalForm = () => {
           <label htmlFor="name">Password</label>
           <input className="block w-full" type="password" id="password" {...register("password")} />
         </div>
+        <div className="w-full max-w-md">
+          <label htmlFor="name">Select</label>
+          <select name="" id="">
+            <option value="">One</option>
+            <option value="">Two</option>
+            <option value="">Three</option>
+            <option value="">Four</option>
+          </select>
+        </div>
+        <div className="w-full max-w-md">
+          <label htmlFor="name">Text Area</label>
+          <textarea name="" id=""></textarea>
+        </div>
+        <div className="w-full max-w-md">
+          <label className="block" htmlFor="name">
+            Checkbox
+          </label>
+          <input type="checkbox" name="" id="" />
+        </div>
+        <div className="w-full max-w-md">
+          <label className="block" htmlFor="name">
+            Radio
+          </label>
+          <input type="radio" name="" id="" />
+        </div>
       </div>
-      <button type="submit">Submit</button>
+      {/* <button type="submit">Submit</button> */}
     </form>
   );
 };
