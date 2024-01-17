@@ -2,9 +2,20 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import cn from "../utils/cn";
 import Button from "./ui/Button";
+import { z } from "zod";
+
+const ZodSignUPSchema = z.object({
+  name: z.string(),
+  email: z.string().email(),
+  password: z.string().min(8, "Too short"),
+});
 
 const NormalForm = () => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);
@@ -27,7 +38,8 @@ const NormalForm = () => {
       >
         <div className="w-full max-w-md">
           <label htmlFor="name">Name</label>
-          <input type="text" id="name" {...register("name")} />
+          <input type="text" id="name" {...register("name", { required: true })} />
+          {errors.name && <p className="text-xs text-red-500">This field is required</p>}
         </div>
         <div className="w-full max-w-md">
           <label htmlFor="name">Email</label>
@@ -36,31 +48,6 @@ const NormalForm = () => {
         <div className="w-full max-w-md">
           <label htmlFor="name">Password</label>
           <input className="block w-full" type="password" id="password" {...register("password")} />
-        </div>
-        <div className="w-full max-w-md">
-          <label htmlFor="name">Select</label>
-          <select name="" id="">
-            <option value="">One</option>
-            <option value="">Two</option>
-            <option value="">Three</option>
-            <option value="">Four</option>
-          </select>
-        </div>
-        <div className="w-full max-w-md">
-          <label htmlFor="name">Text Area</label>
-          <textarea name="" id=""></textarea>
-        </div>
-        <div className="w-full max-w-md">
-          <label className="block" htmlFor="name">
-            Checkbox
-          </label>
-          <input type="checkbox" name="" id="" />
-        </div>
-        <div className="w-full max-w-md">
-          <label className="block" htmlFor="name">
-            Radio
-          </label>
-          <input type="radio" name="" id="" />
         </div>
       </div>
       <div
