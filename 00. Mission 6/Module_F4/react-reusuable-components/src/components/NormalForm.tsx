@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import cn from "../utils/cn";
+import Button from "./ui/Button";
 
 const NormalForm = () => {
   const { register, handleSubmit } = useForm();
@@ -20,7 +21,7 @@ const NormalForm = () => {
       onSubmit={handleSubmit(onSubmit)}
     >
       <div
-        className={cn("border border-purple-500 grid justify-items-center  gap-3", {
+        className={cn(" grid justify-items-center  gap-3", {
           "md:grid-cols-2": double,
         })}
       >
@@ -62,7 +63,17 @@ const NormalForm = () => {
           <input type="radio" name="" id="" />
         </div>
       </div>
-      {/* <button type="submit">Submit</button> */}
+      <div
+        className={cn(" grid justify-items-center  gap-3", {
+          "md:grid-cols-2": double,
+        })}
+      >
+        <div className="w-full max-w-md col-start-1 md:col-start-2 flex justify-end my-8">
+          <Button className="w-full md:w-fit" type="submit">
+            Submit
+          </Button>
+        </div>
+      </div>
     </form>
   );
 };
