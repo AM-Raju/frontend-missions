@@ -1,5 +1,5 @@
 import React from "react";
-import NormalForm from "../components/NormalForm";
+import NormalForm from "../components/NormalForm/NormalForm";
 import Container from "../components/ui/Container";
 
 const Profile = () => {

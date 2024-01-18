@@ -1,23 +1,20 @@
 import React from "react";
-import { useForm } from "react-hook-form";
-import cn from "../utils/cn";
-import Button from "./ui/Button";
-import { z } from "zod";
-
-const ZodSignUPSchema = z.object({
-  name: z.string(),
-  email: z.string().email(),
-  password: z.string().min(8, "Too short"),
-});
+import { FieldValues, useForm } from "react-hook-form";
+import cn from "../../utils/cn";
+import Button from "../ui/Button";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { TNormalForm, ZodSignUPSchema } from "./validation";
 
 const NormalForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<TNormalForm>({
+    resolver: zodResolver(ZodSignUPSchema),
+  });
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: FieldValues) => {
     console.log(data);
   };
 
@@ -38,16 +35,23 @@ const NormalForm = () => {
       >
         <div className="w-full max-w-md">
           <label htmlFor="name">Name</label>
-          <input type="text" id="name" {...register("name", { required: true })} />
-          {errors.name && <p className="text-xs text-red-500">This field is required</p>}
+          <input type="text" id="name" {...register("name")} />
+          {errors.name && <p className="text-xs text-red-500">{errors.name.message}</p>}
         </div>
         <div className="w-full max-w-md">
           <label htmlFor="name">Email</label>
           <input className="block w-full" type="email" id="email" {...register("email")} />
+          {errors.email && <p className="text-xs text-red-500">{errors.email.message}</p>}
         </div>
         <div className="w-full max-w-md">
           <label htmlFor="name">Password</label>
-          <input className="block w-full" type="password" id="password" {...register("password")} />
+          <input
+            className="block w-full"
+            type="password"
+            id="password"
+            {...register("password", { minLength: 8 })}
+          />
+          {errors.password && <p className="text-xs text-red-500">{errors.password.message}</p>}
         </div>
       </div>
       <div
