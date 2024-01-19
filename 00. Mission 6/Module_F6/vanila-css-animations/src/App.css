@@ -1,10 +1,13 @@
 .main {
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  height: 500px;
   padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  flex-direction: column;
+  gap: 10px;
+  /* overflow: hidden; */
 }
 
 .box-1 {
@@ -15,6 +18,20 @@
   transition-duration: 800ms;
 }
 
+.box-2 {
+  background-color: blue;
+  width: 150px;
+  height: 150px;
+  transition-timing-function: ease;
+  transition-duration: 800ms;
+  transform-origin: top left;
+}
+
 .box-1:hover {
-  transform: translateY(300px);
+  /* transform: scale(1.5); */
+  transform: rotate(45deg);
+}
+.box-2:hover {
+  /* transform: scale(1.5); */
+  transform: rotate(90deg);
 }
