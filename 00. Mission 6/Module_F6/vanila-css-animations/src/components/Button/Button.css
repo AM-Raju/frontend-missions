@@ -1,0 +1,37 @@
+.btn {
+  border: 2px solid tomato;
+  padding: 20px 40px;
+  color: tomato;
+  font-weight: bold;
+  font-size: 40px;
+  background: transparent;
+  transition-duration: 500ms;
+  transition-timing-function: ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  /* transform: translate(260px); */
+  transition-duration: 500ms;
+  transition-timing-function: ease;
+  transform: rotateX(90deg);
+}
+
+.btn:hover {
+  /* transform: scale(1.05); */
+  color: white;
+}
+.btn:hover:after {
+  /* transform: translateX(2px); */
+  transform: rotateX(180deg);
+  background-color: tomato;
+}
