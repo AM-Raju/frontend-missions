@@ -1,0 +1,32 @@
+.box-3 {
+  background: red;
+  height: 150px;
+  width: 150px;
+  animation-name: moving;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  /* animation-direction: alternate; */
+}
+
+@keyframes moving {
+  0% {
+    transform: translate(0px);
+  }
+  25% {
+    transform: translate(300px);
+  }
+  50% {
+    transform: translate(300px, 300px);
+    background-color: blue;
+  }
+  75% {
+    transform: translate(-0px, 300px);
+    background-color: orange;
+  }
+  100% {
+    transform: translate(0);
+    background-color: cyan;
+  }
+}

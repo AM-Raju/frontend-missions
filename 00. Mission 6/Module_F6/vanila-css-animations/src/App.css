@@ -28,8 +28,8 @@
 }
 
 .box-1:hover {
-  /* transform: scale(1.5); */
   transform: rotate(45deg);
+  transform: scale(1.5);
 }
 .box-2:hover {
   /* transform: scale(1.5); */
