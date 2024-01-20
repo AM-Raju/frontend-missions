@@ -6,6 +6,7 @@ import Button from "./components/Button/Button.jsx";
 import AnimationBasic from "./components/animation-basic/AnimationBasic.jsx";
 import LoadingAnimation from "./components/LoadingAnimation/LoadingAnimation.jsx";
 import ClipPathTransition from "./components/ClipPathTransition/ClipPathTransition.jsx";
+import TransitionWithJS from "./components/TransitionWithJS/TransitionWithJS.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -13,6 +14,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     {/* <Button></Button> */}
     {/* <AnimationBasic></AnimationBasic> */}
     {/* <LoadingAnimation></LoadingAnimation> */}
-    <ClipPathTransition></ClipPathTransition>
+    {/* <ClipPathTransition></ClipPathTransition> */}
+    <TransitionWithJS></TransitionWithJS>
   </React.StrictMode>
 );
