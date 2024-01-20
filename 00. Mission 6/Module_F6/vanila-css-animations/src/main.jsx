@@ -4,11 +4,13 @@ import App from "./App.jsx";
 import "./index.css";
 import Button from "./components/Button/Button.jsx";
 import AnimationBasic from "./components/animation-basic/AnimationBasic.jsx";
+import LoadingAnimation from "./components/LoadingAnimation/LoadingAnimation.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     {/* <App /> */}
     {/* <Button></Button> */}
-    <AnimationBasic></AnimationBasic>
+    {/* <AnimationBasic></AnimationBasic> */}
+    <LoadingAnimation></LoadingAnimation>
   </React.StrictMode>
 );
