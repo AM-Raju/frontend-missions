@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 const MotionElement = () => {
   const initial = { rotate: 0 };
   const animate = { rotate: 360 };
+
   return (
     <div className="flex justify-center items-center h-screen">
       <motion.div
