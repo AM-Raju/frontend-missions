@@ -6,6 +6,7 @@ import VariantAndStagger from "./pages/VariantAndStagger.tsx";
 import Gesture from "./pages/Gesture.tsx";
 import GestureDrug from "./pages/GestureDrug.tsx";
 import KeyframeAnimation from "./pages/KeyframeAnimation.tsx";
+import UseAnimationControlHook from "./pages/UseAnimationControlHook.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -13,6 +14,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     {/* <VariantAndStagger></VariantAndStagger> */}
     {/* <Gesture></Gesture> */}
     {/* <GestureDrug></GestureDrug> */}
-    <KeyframeAnimation></KeyframeAnimation>
+    {/* <KeyframeAnimation></KeyframeAnimation> */}
+    <UseAnimationControlHook></UseAnimationControlHook>
   </React.StrictMode>
 );
