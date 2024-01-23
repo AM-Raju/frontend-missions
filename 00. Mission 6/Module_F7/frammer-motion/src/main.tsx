@@ -8,6 +8,7 @@ import "./index.css";
 // import KeyframeAnimation from "./pages/KeyframeAnimation.tsx";
 // import UseAnimationControlHook from "./pages/UseAnimationControlHook.tsx";
 import UseCycleHook from "./pages/UseCycleHook.tsx";
+import UseInViewHook from "./pages/UseInViewHook.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     {/* <GestureDrug></GestureDrug> */}
     {/* <KeyframeAnimation></KeyframeAnimation> */}
     {/* <UseAnimationControlHook></UseAnimationControlHook> */}
-    <UseCycleHook></UseCycleHook>
+    {/* <UseCycleHook></UseCycleHook> */}
+    <UseInViewHook></UseInViewHook>
   </React.StrictMode>
 );
