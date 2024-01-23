@@ -9,6 +9,7 @@ import "./index.css";
 // import UseAnimationControlHook from "./pages/UseAnimationControlHook.tsx";
 import UseCycleHook from "./pages/UseCycleHook.tsx";
 import UseInViewHook from "./pages/UseInViewHook.tsx";
+import UseAnimateHook from "./pages/UseAnimateHook.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -19,6 +20,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     {/* <KeyframeAnimation></KeyframeAnimation> */}
     {/* <UseAnimationControlHook></UseAnimationControlHook> */}
     {/* <UseCycleHook></UseCycleHook> */}
-    <UseInViewHook></UseInViewHook>
+    {/* <UseInViewHook></UseInViewHook> */}
+    <UseAnimateHook></UseAnimateHook>
   </React.StrictMode>
 );
