@@ -7,12 +7,13 @@ import "./index.css";
 // import GestureDrug from "./pages/GestureDrug.tsx";
 // import KeyframeAnimation from "./pages/KeyframeAnimation.tsx";
 // import UseAnimationControlHook from "./pages/UseAnimationControlHook.tsx";
-import UseCycleHook from "./pages/UseCycleHook.tsx";
-import UseInViewHook from "./pages/UseInViewHook.tsx";
-import UseAnimateHook from "./pages/UseAnimateHook.tsx";
-import UseDragControlsHook from "./pages/UseDragControlsHook.tsx";
-import UseMotionValueHook from "./pages/UseMotionValueHook.tsx";
-import UseScrollHook from "./pages/UseScrollHook.tsx";
+// import UseCycleHook from "./pages/UseCycleHook.tsx";
+// import UseInViewHook from "./pages/UseInViewHook.tsx";
+// import UseAnimateHook from "./pages/UseAnimateHook.tsx";
+// import UseDragControlsHook from "./pages/UseDragControlsHook.tsx";
+// import UseMotionValueHook from "./pages/UseMotionValueHook.tsx";
+// import UseScrollHook from "./pages/UseScrollHook.tsx";
+import AnimatePresence from "./pages/MyAnimatePresence.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -27,6 +28,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     {/* <UseAnimateHook></UseAnimateHook> */}
     {/* <UseDragControlsHook></UseDragControlsHook> */}
     {/* <UseMotionValueHook></UseMotionValueHook> */}
-    <UseScrollHook></UseScrollHook>
+    {/* <UseScrollHook></UseScrollHook> */}
+    <AnimatePresence></AnimatePresence>
   </React.StrictMode>
 );
