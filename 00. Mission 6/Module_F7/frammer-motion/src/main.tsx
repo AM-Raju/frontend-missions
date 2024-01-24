@@ -10,6 +10,7 @@ import "./index.css";
 import UseCycleHook from "./pages/UseCycleHook.tsx";
 import UseInViewHook from "./pages/UseInViewHook.tsx";
 import UseAnimateHook from "./pages/UseAnimateHook.tsx";
+import UseDragControlsHook from "./pages/UseDragControlsHook.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     {/* <UseAnimationControlHook></UseAnimationControlHook> */}
     {/* <UseCycleHook></UseCycleHook> */}
     {/* <UseInViewHook></UseInViewHook> */}
-    <UseAnimateHook></UseAnimateHook>
+    {/* <UseAnimateHook></UseAnimateHook> */}
+    <UseDragControlsHook></UseDragControlsHook>
   </React.StrictMode>
 );
