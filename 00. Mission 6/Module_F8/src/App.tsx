@@ -1,15 +1,9 @@
-import "./App.css";
+import MainLayout from "./components/layouts/MainLayout";
 import { Button } from "./components/ui/button";
+import Home from "./pages/Home";
 
 function App() {
-  return (
-    <>
-      <div>
-        <h1>framer motions</h1>
-        <Button>Checking button</Button>
-      </div>
-    </>
-  );
+  return <MainLayout></MainLayout>;
 }
 
 export default App;
