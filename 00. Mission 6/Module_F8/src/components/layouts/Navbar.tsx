@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const Navbar = () => {
   return (
     <motion.header
-      className=" h-16  w-full fixed z-[999]"
+      className=" h-16 bg-white  w-full fixed z-[999]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1, duration: 1 }}

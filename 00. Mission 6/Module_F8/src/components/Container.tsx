@@ -7,16 +7,7 @@ type TContainerProps = {
 };
 
 const Container = ({ children, className }: TContainerProps) => {
-  return (
-    <div
-      className={cn(
-        "flex justify-between items-center w-full max-w-[1260px] mx-auto px-5",
-        className
-      )}
-    >
-      {children}
-    </div>
-  );
+  return <div className={cn(" w-full max-w-[1260px] mx-auto px-5", className)}>{children}</div>;
 };
 
 export default Container;
