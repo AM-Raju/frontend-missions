@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Container from "@/components/Container";
 import macbook from "@/assets/images/macbook-exposed.png";
+import { easeInOut } from "framer-motion/dom";
 
 const HeroSection = () => {
   const intro = {
@@ -34,6 +35,21 @@ const HeroSection = () => {
     },
   };
 
+  const laptop = {
+    initial: { y: 0 },
+    animate: {
+      y: 20,
+      transition: {
+        y: {
+          duration: 1,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: easeInOut,
+        },
+      },
+    },
+  };
+
   return (
     <Container className="grid grid-cols-1 lg:grid-cols-2 h-[calc(100vh-64px)]  place-content-center">
       <motion.div variants={intro} initial="hidden" animate="visible">
@@ -55,9 +71,14 @@ const HeroSection = () => {
           <Button>Book and Service</Button>
         </motion.div>
       </motion.div>
-      <div className="w-3/4 lg:w-full mx-auto">
+      <motion.div
+        className="w-3/4 lg:w-full mx-auto"
+        variants={laptop}
+        initial="initial"
+        animate="animate"
+      >
         <img className="-rotate-[35deg] h-[95%] object-contain" src={macbook} alt="" />
-      </div>
+      </motion.div>
     </Container>
   );
 };
