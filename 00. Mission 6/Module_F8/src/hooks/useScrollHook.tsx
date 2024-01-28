@@ -1,5 +1,5 @@
 import { useScroll, useTransform } from "framer-motion";
-import React, { useRef } from "react";
+import { useRef } from "react";
 
 const useScrollHook = () => {
   const componentRef = useRef<HTMLDivElement>(null);

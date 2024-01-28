@@ -1,5 +1,5 @@
 import Container from "@/components/Container";
-import Navbar from "@/components/layouts/Navbar";
+import Navbar from "@/layouts/Navbar";
 
 const Home = () => {
   return (

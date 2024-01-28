@@ -2,7 +2,6 @@ import Container from "@/components/Container";
 import BatteryReplacement from "@/components/serviceTiles/BatteryReplacement";
 import ChipReplacement from "@/components/serviceTiles/ChipReplacement";
 import DataRecovery from "@/components/serviceTiles/DataRecovery";
-import React from "react";
 
 const ServicesSection = () => {
   return (
@@ -16,7 +15,7 @@ const ServicesSection = () => {
           customers. Feel free to find out more below.
         </p>
       </div>
-      <div className="grid gap-[20px]">
+      <div className="grid grid-cols-12 gap-[20px]">
         <BatteryReplacement></BatteryReplacement>
         <ChipReplacement></ChipReplacement>
         <DataRecovery></DataRecovery>
