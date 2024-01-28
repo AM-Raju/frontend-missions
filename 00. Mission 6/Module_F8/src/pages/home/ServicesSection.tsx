@@ -1,4 +1,5 @@
 import Container from "@/components/Container";
+import BatteryReplacement from "@/components/serviceTiles/BatteryReplacement";
 import React from "react";
 
 const ServicesSection = () => {
@@ -14,7 +15,7 @@ const ServicesSection = () => {
         </p>
       </div>
       <div className="grid gap-[20px]">
-        <div className="bg-red-500 col-span-12 h-[415px] rounded-2xl "></div>
+        <BatteryReplacement></BatteryReplacement>
         <div className="bg-red-500 col-span-6 lg:col-span-5 h-[415px] rounded-2xl"></div>
         <div className="bg-red-500 col-span-6 lg:col-span-7 h-[415px] rounded-2xl"></div>
         <div className="bg-red-500 col-span-12 h-[415px] rounded-2xl"></div>
