@@ -1,7 +1,9 @@
+import Todo from "./pages/Todo";
+
 function App() {
   return (
     <div>
-      <h1>Redux todo</h1>
+      <Todo></Todo>
     </div>
   );
 }
