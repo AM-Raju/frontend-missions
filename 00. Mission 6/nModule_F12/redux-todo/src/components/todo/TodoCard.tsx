@@ -1,4 +1,6 @@
 import React from "react";
+import { Button } from "../ui/button";
+import { Trash2, SquarePen } from "lucide-react";
 
 const TodoCard = () => {
   return (
@@ -7,9 +9,13 @@ const TodoCard = () => {
       <p className="font-semibold">Todo Title</p>
       <p>Time</p>
       <p>Description</p>
-      <div className="space-x-4">
-        <button>Delete</button>
-        <button>Edit</button>
+      <div className="space-x-7">
+        <Button className="bg-red-500">
+          <Trash2 />
+        </Button>
+        <Button className="bg-[#5c53fe]">
+          <SquarePen />
+        </Button>
       </div>
     </div>
   );
