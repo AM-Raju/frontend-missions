@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { Trash2, SquarePen } from "lucide-react";
-import { TTodo, deleteTodo } from "@/redux/features/todoSlice";
+import { TTodo, deleteTodo, toggleComplete } from "@/redux/features/todoSlice";
 import { useAppDispatch } from "@/redux/hook";
 
 type TTodoCardProps = {
@@ -10,13 +10,23 @@ type TTodoCardProps = {
 
 const TodoCard = ({ todo }: TTodoCardProps) => {
   const dispatch = useAppDispatch();
+  const { id, title, description, isCompleted } = todo;
 
-  const { id, title, description } = todo;
+  const handleToggleComplete = () => {
+    dispatch(toggleComplete(id));
+  };
+
   return (
     <div className="bg-white rounded-md flex justify-between items-center p-3">
-      <input type="checkbox" />
+      <input onChange={handleToggleComplete} type="checkbox" />
       <p className="font-semibold">{title}</p>
-      <p>Time</p>
+      <div>
+        {isCompleted ? (
+          <p className="text-green-500">Done</p>
+        ) : (
+          <p className="text-red-500">Pending</p>
+        )}
+      </div>
       <p>{description}</p>
       <div className="space-x-7">
         <Button onClick={() => dispatch(deleteTodo(id))} className="bg-red-500">
