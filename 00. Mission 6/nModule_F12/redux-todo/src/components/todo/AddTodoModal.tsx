@@ -14,12 +14,21 @@ import { Label } from "../ui/label";
 // import { useAppDispatch } from "@/redux/hook";
 // import { addTodo } from "@/redux/features/todoSlice";
 import { useAddTodosMutation } from "@/redux/api/api";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
 
 const AddTodoModal = () => {
   /* For local state management */
   // const dispatch = useAppDispatch();
   const [task, setTask] = useState("");
   const [description, setDescription] = useState("");
+  const [priority, setPriority] = useState("");
 
   // Add data to the server
   const [addTodo, { data, isError, isLoading, isSuccess }] = useAddTodosMutation();
@@ -33,7 +42,8 @@ const AddTodoModal = () => {
     const taskDetails = {
       // id: randomString,
       title: task,
-      description: description,
+      description,
+      priority,
       // priority
     };
 
@@ -74,6 +84,22 @@ const AddTodoModal = () => {
                   id="description"
                   className="col-span-3"
                 />
+              </div>
+              <div className="flex gap-3 items-center">
+                <Label>Priority</Label>
+                <Select onValueChange={(value) => setPriority(value)}>
+                  <SelectTrigger className="col-span-3">
+                    <SelectValue placeholder="Set Priority" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      {/* <SelectLabel>Priority</SelectLabel> */}
+                      <SelectItem value="low">Low</SelectItem>
+                      <SelectItem value="medium">Medium</SelectItem>
+                      <SelectItem value="high">High</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
               </div>
             </div>
             <div className="flex justify-end">
