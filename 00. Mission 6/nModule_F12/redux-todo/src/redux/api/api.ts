@@ -21,7 +21,7 @@ export const baseApi = createApi({
       },
       providesTags: ["todo"],
     }),
-    addTodos: builder.mutation({
+    addTodo: builder.mutation({
       query: (data) => {
         return {
           url: "/task",
@@ -31,7 +31,18 @@ export const baseApi = createApi({
       },
       invalidatesTags: ["todo"],
     }),
+
+    updateTodo: builder.mutation({
+      query: ({ id, data }) => {
+        return {
+          url: `/task/${id}`,
+          method: "PUT",
+          body: data,
+        };
+      },
+      invalidatesTags: ["todo"],
+    }),
   }),
 });
 
-export const { useGetTodosQuery, useAddTodosMutation } = baseApi;
+export const { useGetTodosQuery, useAddTodoMutation, useUpdateTodoMutation } = baseApi;

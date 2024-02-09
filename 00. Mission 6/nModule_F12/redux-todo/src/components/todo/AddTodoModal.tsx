@@ -13,7 +13,7 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 // import { useAppDispatch } from "@/redux/hook";
 // import { addTodo } from "@/redux/features/todoSlice";
-import { useAddTodosMutation } from "@/redux/api/api";
+import { useAddTodoMutation } from "@/redux/api/api";
 import {
   Select,
   SelectContent,
@@ -31,7 +31,7 @@ const AddTodoModal = () => {
   const [priority, setPriority] = useState("");
 
   // Add data to the server
-  const [addTodo, { data, isError, isLoading, isSuccess }] = useAddTodosMutation();
+  const [addTodo, { data, isError, isLoading, isSuccess }] = useAddTodoMutation();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
