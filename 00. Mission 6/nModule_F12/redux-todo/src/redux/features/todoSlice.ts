@@ -4,6 +4,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 export type TTodo = {
   id: string;
   title: string;
+  priority: string;
   description: string;
   isCompleted?: boolean;
 };
