@@ -1,9 +1,10 @@
-import { Layout, Menu, MenuProps } from "antd";
-import { NavLink, Outlet } from "react-router-dom";
+import { Layout, Menu } from "antd";
+import { Outlet } from "react-router-dom";
 import { sideBarItems } from "../../routes/admin.routes";
 
 const { Header, Content, Footer, Sider } = Layout;
 
+// This is hard coded sidebar items.
 /* const items: MenuProps["items"] = [
   {
     key: "dashboard",
