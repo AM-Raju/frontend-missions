@@ -31,6 +31,7 @@ export const adminPaths = [
   },
 ];
 
+// For route
 const result = adminPaths.reduce((acc, item) => {
   if (item.path && item.element) {
     acc.push({
@@ -51,4 +52,28 @@ const result = adminPaths.reduce((acc, item) => {
   return acc;
 }, []);
 
+// For MainLayout sidebar
+const result2 = adminPaths.reduce((acc, item) => {
+  if (item.path && item.name) {
+    acc.push({
+      key: item.name,
+      label: "NavLink",
+    });
+  }
+
+  if (item.children) {
+    acc.push({
+      key: item.name,
+      label: item.name,
+      children: item.children.map((child) => ({
+        key: child.name,
+        label: "NavLink",
+      })),
+    });
+  }
+
+  return acc;
+}, []);
+
 console.log(result);
+console.log(JSON.stringify(result2));
