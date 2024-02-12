@@ -21,6 +21,10 @@ const items: MenuProps["items"] = [
         key: "Create Faculty",
         label: <NavLink to="/admin/create-faculty"> Create Faculty</NavLink>,
       },
+      {
+        key: "Offered Course",
+        label: <NavLink to="/admin/offered-course"> Offered Course</NavLink>,
+      },
     ],
   },
 ];

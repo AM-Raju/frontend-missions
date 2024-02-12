@@ -1,11 +1,17 @@
+import { ReactNode } from "react";
 import AdminDashboard from "../pages/admin/AdminDashboard";
 import CreateAdmin from "../pages/admin/CreateAdmin";
 import CreateFaculty from "../pages/admin/CreateFaculty";
 
-export const adminPaths2 = [
+type TRoute = {
+  path: string;
+  element: ReactNode;
+};
+
+const adminPaths = [
   {
     name: "dashboard",
-    path: "/admin/dashboard",
+    path: "dashboard",
     element: <AdminDashboard></AdminDashboard>,
   },
   {
@@ -13,12 +19,12 @@ export const adminPaths2 = [
     children: [
       {
         name: "Create Admin",
-        path: "/admin/create-admin",
+        path: "create-admin",
         element: <CreateAdmin></CreateAdmin>,
       },
       {
         name: "Create Faculty",
-        path: "/admin/create-faculty",
+        path: "create-faculty",
         element: <CreateFaculty></CreateFaculty>,
       },
     ],
@@ -28,16 +34,40 @@ export const adminPaths2 = [
     children: [
       {
         name: "Offered Course",
-        path: "/admin/offered-course",
+        path: "offered-course",
         element: <h1>Offered Course element</h1>,
       },
     ],
   },
 ];
 
-export const adminPaths = [
+// Programmatic way.
+
+export const adminRoutes = adminPaths.reduce((acc: TRoute[], item) => {
+  if (item.path && item.element) {
+    acc.push({
+      path: item.path,
+      element: item.element,
+    });
+  }
+
+  if (item.children) {
+    item.children.forEach((child) => {
+      acc.push({
+        path: child.path,
+        element: child.element,
+      });
+    });
+  }
+
+  return acc;
+}, []);
+
+// Hard coded way
+
+/* export const adminPaths = [
   {
-    index: true,
+    path: "dashboard",
     element: <AdminDashboard></AdminDashboard>,
   },
   {
@@ -49,3 +79,4 @@ export const adminPaths = [
     element: <CreateFaculty></CreateFaculty>,
   },
 ];
+ */
