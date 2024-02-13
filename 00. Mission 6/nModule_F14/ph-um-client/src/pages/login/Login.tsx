@@ -11,6 +11,9 @@ type TInputs = {
 const Login = () => {
   const [login, { data, error }] = useLoginMutation();
 
+  console.log("data", data);
+  console.log("error", error);
+
   const { register, handleSubmit } = useForm<TInputs>();
 
   const onSubmit: SubmitHandler<TInputs> = (data) => {
@@ -26,7 +29,7 @@ const Login = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label htmlFor="userId">ID: </label>
-        <input defaultValue="A-001" {...register("userId")} />
+        <input defaultValue="A-0001" {...register("userId")} />
       </div>
       <div>
         <label htmlFor="password">Password: </label>
