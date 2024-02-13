@@ -15,7 +15,7 @@ type TSidebarItem = {
   children?: TSidebarItem[];
 };
 
-const adminPaths = [
+export const adminPaths = [
   {
     name: "dashboard",
     path: "dashboard",
@@ -50,7 +50,7 @@ const adminPaths = [
 
 // Programmatic way.
 
-export const adminRoutes = adminPaths.reduce((acc: TRoute[], item) => {
+/* export const adminRoutes = adminPaths.reduce((acc: TRoute[], item) => {
   if (item.path && item.element) {
     acc.push({
       path: item.path,
@@ -68,7 +68,7 @@ export const adminRoutes = adminPaths.reduce((acc: TRoute[], item) => {
   }
 
   return acc;
-}, []);
+}, []); */
 
 export const sideBarItems = adminPaths.reduce((acc: TSidebarItem[], item) => {
   if (item.path && item.name) {
