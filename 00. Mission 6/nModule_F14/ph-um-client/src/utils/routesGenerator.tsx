@@ -12,8 +12,8 @@ type TUserPath = {
   children?: TUserPath[];
 };
 
-const routesGenerator = (paths: TUserPath[]) => {
-  const routes = paths.reduce((acc: TRoute[], item: TUserPath) => {
+const routesGenerator = (items: TUserPath[]) => {
+  const routes = items.reduce((acc: TRoute[], item: TUserPath) => {
     if (item.path && item.element) {
       acc.push({
         path: item.path,
