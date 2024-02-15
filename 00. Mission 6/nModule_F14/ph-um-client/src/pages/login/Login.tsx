@@ -7,6 +7,7 @@ import { TUser, setUser } from "../../redux/features/auth/authSlice";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import PHform from "../../components/form/PHform";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -16,7 +17,9 @@ const Login = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data: FieldValues) => {
-    const toastId = toast.loading("Pending");
+    console.log("Form submit", data);
+
+    /*     const toastId = toast.loading("Pending");
     try {
       const loginInfo = {
         id: data.userId,
@@ -33,11 +36,11 @@ const Login = () => {
       navigate(`/${decodedUser?.role}/dashboard`);
     } catch (error) {
       toast.error("Something went wrong", { id: toastId, duration: 2000 });
-    }
+    } */
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <PHform onSubmit={onSubmit}>
       <div>
         <label htmlFor="userId">ID: </label>
         <input defaultValue="A-0001" {...register("userId")} />
@@ -47,7 +50,7 @@ const Login = () => {
         <input defaultValue="admin123" {...register("password")} />
       </div>
       <Button htmlType="submit">Submit</Button>
-    </form>
+    </PHform>
   );
 };
 
