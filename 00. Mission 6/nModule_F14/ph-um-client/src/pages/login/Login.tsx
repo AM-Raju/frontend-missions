@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Button, Row } from "antd";
 import React from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import { useLoginMutation } from "../../redux/features/auth/authApi";
@@ -20,7 +20,7 @@ const Login = () => {
   const onSubmit = async (data: FieldValues) => {
     console.log("Form submit", data);
 
-    /*     const toastId = toast.loading("Pending");
+    const toastId = toast.loading("Pending");
     try {
       const loginInfo = {
         id: data.userId,
@@ -37,19 +37,17 @@ const Login = () => {
       navigate(`/${decodedUser?.role}/dashboard`);
     } catch (error) {
       toast.error("Something went wrong", { id: toastId, duration: 2000 });
-    } */
+    }
   };
 
   return (
-    <PHform onSubmit={onSubmit}>
-      <div>
-        <PHinput type="text" name="id" label="User Id" defaultValue="A-0001"></PHinput>
-      </div>
-      <div>
-        <PHinput type="text" name="password" label="Password" defaultValue="admin123"></PHinput>
-      </div>
-      <Button htmlType="submit">Submit</Button>
-    </PHform>
+    <Row justify="center" align="middle" style={{ height: "100vh" }}>
+      <PHform onSubmit={onSubmit}>
+        <PHinput type="text" name="userId" label="User Id"></PHinput>
+        <PHinput type="text" name="password" label="Password"></PHinput>
+        <Button htmlType="submit">Submit</Button>
+      </PHform>
+    </Row>
   );
 };
 

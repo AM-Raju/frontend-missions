@@ -1,14 +1,12 @@
-import React from "react";
-import { useFormContext } from "react-hook-form";
+import { Input } from "antd";
+import { Controller } from "react-hook-form";
 
-const PHinput = ({ type, name, label, defaultValue }) => {
-  const { register } = useFormContext();
-
+const PHinput = ({ type, name, label }) => {
   return (
-    <>
+    <div style={{ marginBottom: "20px" }}>
       {label ? label : null}
-      <input type={type} id={name} defaultValue={defaultValue} {...register(name)} />
-    </>
+      <Controller name={name} render={({ field }) => <Input {...field} type={type} id={name} />} />
+    </div>
   );
 };
 
