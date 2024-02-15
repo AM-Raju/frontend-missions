@@ -16,12 +16,25 @@ const auth = (...requiredRoles: TUserRole[]) => {
       throw new AppError(httpStatus.UNAUTHORIZED, 'You are not authorized!');
     }
 
+    // By mezba vy
     // checking if the given token is valid
-    const decoded = jwt.verify(
+    /*  const decoded = jwt.verify(
       token,
       config.jwt_access_secret as string,
-    ) as JwtPayload;
+    ) as JwtPayload; */
 
+    // by Mir vy
+    let decoded;
+
+    try {
+      decoded = jwt.verify(
+        token,
+        config.jwt_access_secret as string,
+      ) as JwtPayload;
+    } catch (error) {
+      throw new AppError(httpStatus.UNAUTHORIZED, 'Unauthorized');
+    }
+    // mir vy code end
     const { role, userId, iat } = decoded;
 
     // checking if the user is exist
