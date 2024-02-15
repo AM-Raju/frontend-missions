@@ -8,13 +8,14 @@ import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import PHform from "../../components/form/PHform";
+import PHinput from "../../components/form/PHinput";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [login] = useLoginMutation();
 
-  const { register, handleSubmit } = useForm();
+  // const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data: FieldValues) => {
     console.log("Form submit", data);
@@ -42,12 +43,10 @@ const Login = () => {
   return (
     <PHform onSubmit={onSubmit}>
       <div>
-        <label htmlFor="userId">ID: </label>
-        <input defaultValue="A-0001" {...register("userId")} />
+        <PHinput type="text" name="id" label="User Id" defaultValue="A-0001"></PHinput>
       </div>
       <div>
-        <label htmlFor="password">Password: </label>
-        <input defaultValue="admin123" {...register("password")} />
+        <PHinput type="text" name="password" label="Password" defaultValue="admin123"></PHinput>
       </div>
       <Button htmlType="submit">Submit</Button>
     </PHform>
