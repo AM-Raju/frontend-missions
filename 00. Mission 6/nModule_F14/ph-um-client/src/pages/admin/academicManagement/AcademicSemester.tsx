@@ -13,6 +13,7 @@ const AcademicSemester = () => {
   console.log("academic Semester", semesterData);
 
   const tableData = semesterData?.data?.map((singleSemester) => ({
+    _id: singleSemester._id,
     name: singleSemester.name,
     year: singleSemester.year,
     code: singleSemester.code,
@@ -71,53 +72,14 @@ const AcademicSemester = () => {
     {
       title: "Code",
       dataIndex: "code",
-      filters: [
-        {
-          text: "London",
-          value: "London",
-        },
-        {
-          text: "New York",
-          value: "New York",
-        },
-      ],
-      onFilter: (value: string, record) => record.address.startsWith(value),
-      filterSearch: true,
-      width: "40%",
     },
     {
       title: "Start Month",
       dataIndex: "startMonth",
-      filters: [
-        {
-          text: "London",
-          value: "London",
-        },
-        {
-          text: "New York",
-          value: "New York",
-        },
-      ],
-      onFilter: (value: string, record) => record.address.startsWith(value),
-      filterSearch: true,
-      width: "40%",
     },
     {
       title: "End Month",
       dataIndex: "endMonth",
-      filters: [
-        {
-          text: "London",
-          value: "London",
-        },
-        {
-          text: "New York",
-          value: "New York",
-        },
-      ],
-      onFilter: (value: string, record) => record.address.startsWith(value),
-      filterSearch: true,
-      width: "40%",
     },
   ];
 

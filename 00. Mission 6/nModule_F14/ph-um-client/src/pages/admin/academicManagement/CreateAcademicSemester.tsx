@@ -9,7 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { createAcademicSemesterSchema } from "../../../schemas/createAcademicSemesterSchema";
 import { useCreateAcademicSemesterMutation } from "../../../redux/features/admin/academicManagementApi";
 import { toast } from "sonner";
-import { TResponse } from "../../../types";
+import { TAcademicSemester, TResponse } from "../../../types";
 
 const currentYear = new Date().getFullYear();
 const yearOptions = [0, 1, 2, 3, 4].map((number) => ({
@@ -42,12 +42,12 @@ const CreateAcademicSemester = () => {
     // console.log(semesterData);
 
     try {
-      const res = (await createAcademicSemester(semesterData)) as TResponse;
+      const res = (await createAcademicSemester(semesterData)) as TResponse<TAcademicSemester>;
 
-      if (res?.data?.success) {
-        toast.success(res?.data?.message, { id: toastId });
-      } else {
+      if (res?.error) {
         toast.error(res?.error?.data?.message, { id: toastId });
+      } else {
+        toast.success("Semester created successfully", { id: toastId });
       }
     } catch (error) {
       toast.error("Something went wrong", { id: toastId });
