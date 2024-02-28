@@ -7,6 +7,14 @@ const academicManagementApi = baseApi.injectEndpoints({
         url: "/academic-semesters",
         method: "GET",
       }),
+      transformResponse: (response) => {
+        // console.log("inside redux", response);
+
+        return {
+          data: response?.data,
+          meta: response?.meta,
+        };
+      },
     }),
 
     // Create academic semester
