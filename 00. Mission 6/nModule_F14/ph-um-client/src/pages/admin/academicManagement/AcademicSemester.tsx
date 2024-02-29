@@ -1,6 +1,7 @@
 import { Table, TableColumnsType, TableProps } from "antd";
 import { useGetAllSemestersQuery } from "../../../redux/features/admin/academicManagementApi";
 import { TAcademicSemester } from "../../../types";
+import { useState } from "react";
 
 export type TTableData = Pick<
   TAcademicSemester,
@@ -8,11 +9,13 @@ export type TTableData = Pick<
 >;
 
 const AcademicSemester = () => {
-  const { data: semesterData } = useGetAllSemestersQuery(undefined);
+  const [params, setParams] = useState([]);
+
+  const { data: semesterData } = useGetAllSemestersQuery(params);
   console.log("academic Semester", semesterData);
 
   const tableData = semesterData?.data?.map((singleSemester) => ({
-    _id: singleSemester._id,
+    key: singleSemester._id,
     name: singleSemester.name,
     year: singleSemester.year,
     code: singleSemester.code,
@@ -26,36 +29,16 @@ const AcademicSemester = () => {
       dataIndex: "name",
       filters: [
         {
-          text: "Joe",
-          value: "Joe",
+          text: "Autumn",
+          value: "Autumn",
         },
         {
-          text: "Category 1",
-          value: "Category 1",
-          children: [
-            {
-              text: "Yellow",
-              value: "Yellow",
-            },
-            {
-              text: "Pink",
-              value: "Pink",
-            },
-          ],
+          text: "Summer",
+          value: "Summer",
         },
         {
-          text: "Category 2",
-          value: "Category 2",
-          children: [
-            {
-              text: "Green",
-              value: "Green",
-            },
-            {
-              text: "Black",
-              value: "Black",
-            },
-          ],
+          text: "Fall",
+          value: "Fall",
         },
       ],
       filterMode: "tree",
@@ -83,7 +66,12 @@ const AcademicSemester = () => {
   ];
 
   const onChange: TableProps<TTableData>["onChange"] = (pagination, filters, sorter, extra) => {
-    console.log("params", pagination, filters, sorter, extra);
+    // console.log("params", filters, extra);
+    const filterOptions = [];
+    if (extra?.action === "filter") {
+      filters?.name?.forEach((item) => filterOptions.push({ name: "name", value: item }));
+    }
+    setParams(filterOptions);
   };
 
   return <Table columns={columns} dataSource={tableData!} onChange={onChange} />;
