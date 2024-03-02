@@ -70,7 +70,7 @@ const AcademicSemester = () => {
     },
   ];
 
-  const onChange: TableProps<TTableData>["onChange"] = (pagination, filters, sorter, extra) => {
+  const onChange: TableProps<TTableData>["onChange"] = (_pagination, filters, _sorter, extra) => {
     // console.log("params", filters, extra);
     const queryParams: TQueryParam[] = [];
     if (extra?.action === "filter") {
