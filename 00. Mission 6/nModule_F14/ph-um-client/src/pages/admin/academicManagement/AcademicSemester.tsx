@@ -1,17 +1,17 @@
 import { Table, TableColumnsType, TableProps } from "antd";
 import { useGetAllSemestersQuery } from "../../../redux/features/admin/academicManagementApi";
-import { TAcademicSemester } from "../../../types";
+import { TAcademicSemester, TQueryParam } from "../../../types";
 import { useState } from "react";
 
 export type TTableData = Pick<
   TAcademicSemester,
-  "_id" | "name" | "year" | "code" | "startMonth" | "endMonth"
+  "name" | "year" | "code" | "startMonth" | "endMonth"
 >;
 
 const AcademicSemester = () => {
-  const [params, setParams] = useState([]);
+  const [params, setParams] = useState<TQueryParam[] | undefined>(undefined);
 
-  const { data: semesterData } = useGetAllSemestersQuery(params);
+  const { data: semesterData, isLoading, isFetching } = useGetAllSemestersQuery(params);
   console.log("academic Semester", semesterData);
 
   const tableData = semesterData?.data?.map((singleSemester) => ({
@@ -26,6 +26,7 @@ const AcademicSemester = () => {
   const columns: TableColumnsType<TTableData> = [
     {
       title: "Name",
+      key: "name",
       dataIndex: "name",
       filters: [
         {
@@ -48,33 +49,43 @@ const AcademicSemester = () => {
     },
     {
       title: "Year",
+      key: "year",
       dataIndex: "year",
       // sorter: (a, b) => a.age - b.age,
     },
     {
       title: "Code",
+      key: "code",
       dataIndex: "code",
     },
     {
       title: "Start Month",
+      key: "startMonth",
       dataIndex: "startMonth",
     },
     {
       title: "End Month",
+      key: "endMonth",
       dataIndex: "endMonth",
     },
   ];
 
   const onChange: TableProps<TTableData>["onChange"] = (pagination, filters, sorter, extra) => {
     // console.log("params", filters, extra);
-    const filterOptions = [];
+    const queryParams: TQueryParam[] = [];
     if (extra?.action === "filter") {
-      filters?.name?.forEach((item) => filterOptions.push({ name: "name", value: item }));
+      filters?.name?.forEach((item) => queryParams.push({ name: "name", value: item }));
     }
-    setParams(filterOptions);
+    setParams(queryParams);
   };
 
-  return <Table columns={columns} dataSource={tableData!} onChange={onChange} />;
+  if (isLoading) {
+    return <p>...Loading</p>;
+  }
+
+  return (
+    <Table loading={isFetching} columns={columns} dataSource={tableData!} onChange={onChange} />
+  );
 };
 
 export default AcademicSemester;
